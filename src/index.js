@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ToDo from 'TodoApp'
+import ToDo from './components/TodoApp';
 
 // custom styles
 import './styles/app.sass'
