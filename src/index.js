@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/Main.jsx'
-import Foundation from 'foundation-sites'
+import ToDo from 'TodoApp'
+
+// custom styles
+import './styles/app.sass'
 
 // Load foundation
 import 'foundation-sites/dist/foundation.min.css'
-console.log(Foundation)
+
 ReactDOM.render(
-  <Main />,
+  <ToDo />,
   document.getElementById('root')
 );
