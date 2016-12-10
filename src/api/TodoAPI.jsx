@@ -21,5 +21,17 @@ module.exports = {
         } else {
             return [];
         }
+    },
+    filterTodos: function(todos, completed, search){
+        var filtered = todos;
+
+        // filter by completed
+        filtered = filtered.filter((todo)=>{
+            return !todo.completed || completed;
+        });
+
+        // filter by search text
+
+        return filtered;
     }
 };
