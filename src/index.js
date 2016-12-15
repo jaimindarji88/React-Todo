@@ -4,14 +4,12 @@ import ToDo from './components/TodoApp';
 import { Provider } from 'react-redux';
 
 // import redux tools
-var actions = require('./actions/reduxActions');
+// var actions = require('./actions/reduxActions');
 var store = require('./store/configureStore').config();
 
 store.subscribe(()=>{
     console.log('New', store.getState());
 });
-
-store.dispatch(actions.addTodo('nice'))
 
 // custom styles
 import './styles/app.sass'
