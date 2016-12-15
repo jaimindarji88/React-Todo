@@ -38,16 +38,16 @@ export var todosReducer = (state=[], action) => {
             newState = state.map((todo)=>{
                 if (todo.id === action.id) {
                     var next = !todo.completed;
+
                     return {
                         ...todo,
                         completed: next,
-                        completedAt: next ? moment.unix() : undefined
+                        completedAt: next ? moment().unix() : undefined
                     };
                 } else {
                     return todo;
                 }
             });
-            console.log(newState);
             return newState;
         default:
             return state;

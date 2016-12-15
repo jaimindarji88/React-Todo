@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ToDo from './components/TodoApp';
+import { Provider } from 'react-redux';
 
 // import redux tools
 var actions = require('./actions/reduxActions');
@@ -10,9 +11,7 @@ store.subscribe(()=>{
     console.log('New', store.getState());
 });
 
-store.dispatch(actions.addTodo('et'));
-store.dispatch(actions.setSearchText('asddasd'));
-store.dispatch(actions.toggleShowCompleted());
+store.dispatch(actions.addTodo('nice'))
 
 // custom styles
 import './styles/app.sass'
@@ -21,6 +20,8 @@ import './styles/app.sass'
 import 'foundation-sites/dist/foundation.min.css'
 
 ReactDOM.render(
-  <ToDo />,
-  document.getElementById('root')
+    <Provider store={store}>
+        <ToDo />
+    </Provider>,
+    document.getElementById('root')
 );

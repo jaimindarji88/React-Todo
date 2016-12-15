@@ -45,6 +45,7 @@
     "promise": "7.1.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dev-utils": "^0.3.0",
+    "react-redux": "^4.4.6",
     "recursive-readdir": "2.1.0",
     "redux": "^3.6.0",
     "rimraf": "2.5.4",
