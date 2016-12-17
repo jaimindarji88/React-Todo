@@ -3,16 +3,8 @@ import React from 'react';
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
 import TodoSearch from './TodoSearch';
-import TodoAPI from './../api/TodoAPI';
 
 var TodoApp = React.createClass({
-    getInitialState: function () {
-        return {
-            todos: TodoAPI.getTodos(),
-            completed: false,
-            searchText: ""
-        };
-    },
     render: function(){
         return (
             <div>

@@ -1,4 +1,5 @@
 var redux = require('redux');
+import thunk from 'redux-thunk';
 
 import {
     searchTextReducer, showCompletedReducer, todosReducer
@@ -13,7 +14,10 @@ export var config = ()=>{
 
     var store = redux.createStore(
         reducer,
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        redux.compose(
+            redux.applyMiddleware(thunk),
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
     );
     return store;
 };
