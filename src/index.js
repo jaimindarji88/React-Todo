@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 var actions = require('./actions/reduxActions');
 var store = require('./store/configureStore').config();
 
+
+
 store.dispatch(actions.initTodos());
 
 // custom styles
