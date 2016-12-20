@@ -12,13 +12,14 @@ var store = require('./store/configureStore').config();
 
 firebase.auth().onAuthStateChanged((user)=>{
     if (user){
+        store.dispatch(actions.login(user.uid));
+        store.dispatch(actions.initTodos());
         hashHistory.push('/todos');
     } else {
+        store.dispatch(actions.logout());
         hashHistory.push('/');
     }
 });
-
-store.dispatch(actions.initTodos());
 
 // custom styles
 import './styles/app.sass'

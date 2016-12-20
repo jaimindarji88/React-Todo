@@ -31,7 +31,9 @@ export var addTodos = (todos) => {
 
 export var initTodos = () => {
     return (dispatch, getState)=>{
-        var todosRef = ref.child('todos');
+        var uid = getState().auth.uid;
+        var todosRef = ref.child(`users/${uid}/todos`);
+
         return todosRef.once('value').then((snapshot)=>{
             var todos = snapshot.val() || {};
             var parsed = [];
@@ -64,8 +66,8 @@ export var startAddTodo = (text)=>{
             createdAt: moment().unix(),
             completedAt: null
         };
-
-        var todoRef = ref.child('todos').push(todo);
+        var uid = getState().auth.uid;
+        var todoRef = ref.child(`users/${uid}/todos`).push(todo);
         todoRef.then(()=>{
             dispatch(addTodo({
                 ...todo,
@@ -77,7 +79,9 @@ export var startAddTodo = (text)=>{
 
 export var startToggleTodo = (id, completed) => {
     return (dispatch, getState) =>{
-        var todoRef = ref.child(`todos/${id}`);
+        var uid = getState().auth.uid;
+
+        var todoRef = ref.child(`users/${uid}/todos/${id}`);
         var updatedTodo = {
             completed,
             completedAt: completed ? moment().unix() : null
@@ -105,3 +109,30 @@ export var startLogout = () => {
         });
     };
 };
+
+export var login = (uid)=>{
+    return {
+        type: 'LOGIN',
+        uid
+    };
+};
+
+export var logout = ()=>{
+    return {
+        type: 'LOGOUT'
+    };
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
